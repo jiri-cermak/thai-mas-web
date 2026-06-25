@@ -38,6 +38,92 @@
 
 ---
 
+## Proposed Features (Discussion)
+
+### F1 — Multi-Language Versions (CZ, DE, EN, optional TH)
+
+**Goal:** Serve the site in Czech (primary), German (tourist audience in Třeboň), English (international), optionally Thai (brand authenticity).
+
+**Constraint:** Must align with the existing design philosophy — "Thai luxury, local warmth", pure static site (no build tools), burgundy + gold palette, mobile-first.
+
+#### Implementation Option A: Subdirectory Structure ⭐ recommended
+
+```
+/                  → CZ (default, redirect from root or serve cz at /)
+/cs/index.html
+/de/index.html
+/en/index.html
+/th/index.html
+```
+
+Each language gets its own copy of all 3 pages. GitHub Pages serves subdirectory URLs natively.
+
+**Pros:** ✅ SEO best practice (Google hreflang tags + `/de/` > `index-de.html`)  
+✅ Works without JavaScript  
+✅ Mirror of current codebase — no new dependencies  
+✅ Can share `css/`, `js/`, `gallery/` via relative paths  
+
+**Cons:** ❌ Content duplicated per language (manual sync or script needed)  
+❌ Gallery images & CSS/JS shared — only text and HTML differ
+
+#### Implementation Option B: Separate Files per Language
+
+`index.html`, `index-de.html`, `index-en.html` — language code in filename.
+
+**Pros:** ✅ Simplest possible — no subdirectories  
+**Cons:** ❌ Ugly URLs (`/index-de.html`), weaker SEO
+
+#### Implementation Option C: JS-Based i18n (JSON + runtime swap)
+
+Single HTML per page + JSON translation files + JavaScript to replace text.
+
+**Pros:** ✅ Single HTML file per page  
+**Cons:** ❌ Breaks without JavaScript ❌ SEO penalty (JS-rendered text) ❌ Adds complexity — not aligned with current zero-framework approach
+
+#### Recommended: Option A (subdirectories) + Python translation sync
+
+```
+thai-mas-web/
+├── index.html              (CZ)
+├── cenik.html
+├── gallery.html
+├── de/
+│   ├── index.html
+│   ├── cenik.html
+│   └── gallery.html
+├── en/  (same)
+├── th/  (optional)
+├── css/  ← shared
+├── js/   ← shared
+└── gallery/  ← shared
+```
+
+**Language switcher UI** — consistent with design guidelines:
+- Small gold text links in the header nav area: `CS · DE · EN · TH`
+- Current language highlighted (burgundy bg, gold text, 6px rounded pill)
+- Subtle, no flags, no dropdown — just text, consistent with the minimalist approach
+- Mobile: appears inside the hamburger menu alongside page links
+
+**Content management:** A Python script (extending `scripts/`) to:
+1. Parse source CZ HTML and extract translatable strings
+2. Generate skeleton files for DE/EN/TH
+3. Apply translations via JSON key-value pairs
+
+**Priority:** Low — can be deferred until after production launch. Core audience is CZ; DE/EN are nice-to-have for walk-in tourists.
+
+#### Design Alignment Check
+
+| Guideline | How F1 fits |
+|-----------|-------------|
+| "Thai luxury, local warmth" | CZ primary + DE/EN for tourists; optional TH as brand touch |
+| "Restraint with gold" | Language switcher as small gold text, not flags or dropdowns |
+| "Readability first" | Full translated pages — no machine-translation disclaimer needed |
+| "Mobile-first" | Language links inside hamburger on mobile, visible in nav on desktop |
+| "Consistency across pages" | Same layout, same assets — only text changes |
+| No build tools | Subdirectories are static HTML — no build step required |
+
+---
+
 ## Master User Pre-Production Review
 
 Checklist of items requiring human review and sign-off before the site is considered production-ready. Last pass: **pending**.
