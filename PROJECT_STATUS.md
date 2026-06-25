@@ -31,7 +31,7 @@
 |---|------|--------|--------------|
 | 2 | Payment/gift card text on cenik | **pending** | Text: "Prodáváme dárkové poukazy na hodnotu, trvání, nebo na konkrétní masáže. Volejte nám na <tel: link>". Placement TBD — ties to pricing grid context, may replace hero subtitle. No commit until decided. |
 | 3 | Hero heading on cenik/gallery | **deferred** | Bound to nav redesign exploration — unified top bar (logo left, title center, menu right). Do not execute independently. |
-| 16 | Index card footers → duration recommendations | **pending** | Prices removed from index cards (kept only in cenik). Duration text needed per card. |
+| 16 | Index card footers → duration recommendations | **deferred** | Moved to feature discussion — needs master user scoping before implementation. |
 | 23 | Select card layout | **done** | Final: layered design — border-top burgundy + cream background + white rounded rect body. 2026-06-25. |
 | 24 | Re-run `apply_nbsp.py` | **pending** | File list updated; script ready to execute on new filenames. |
 | 25 | Footer link tap effect (gold underline) | **pending review** | Implemented on `css/main.css`. Needs master user sign-off before production. |
@@ -124,6 +124,17 @@ This feature introduces significant content duplication. Key questions to resolv
 | Content sync strategy? | Manual copy-paste vs Python generator script |
 
 These decisions affect the rollout path and should be resolved before development starts.
+
+### F2 — Duration Recommendations in Card Footers
+
+Deferred from task #16. Index cards currently show bare time durations (`⏰ 60 min`). The cream footer bar has room for a short descriptive label alongside the times.
+
+**Open questions for master user:**
+| Question | Options |
+|----------|---------|
+| Text per card? | 6 unique labels vs 2-3 generic templates |
+| Tone? | Descriptive („Pro celkové protažení") vs persuasive („Ideální pro úlevu od bolesti") |
+| Relation to cenik? | Repeat cenik durations or add value („Doporučujeme 60 min") |
 
 #### Design Alignment Check
 
