@@ -175,23 +175,39 @@ nav a:hover {
     display: inline-block;
     min-height: 44px;
     min-width: 44px;
-    padding: 4px 0;
-    transition: all 0.3s ease;
+    padding: 4px 2px;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+    transition: color 0.2s ease;
 }
 
-.footer a.phone-link::before {
-    content: "";
-    margin-right: 0;
+.footer a.phone-link::after,
+.footer a.email-link::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+    right: 2px;
+    height: 1.5px;
+    background: #D4AF37;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.2s ease;
 }
 
-.footer a.phone-link:hover {
+.footer a.phone-link:hover::after,
+.footer a.phone-link:active::after,
+.footer a.email-link:hover::after,
+.footer a.email-link:active::after {
+    transform: scaleX(1);
+}
+
+.footer a.phone-link:hover,
+.footer a.phone-link:active,
+.footer a.email-link:hover,
+.footer a.email-link:active {
     color: #fff;
-    letter-spacing: 0.5px;
-}
-
-.footer a.email-link:hover {
-    color: #fff;
-    letter-spacing: 0.5px;
 }
 
 .footer .hours {
