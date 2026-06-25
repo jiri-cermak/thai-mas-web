@@ -1,6 +1,6 @@
 # Thai Massage Website — Project Status
 
-**Last updated:** 2026-05-31
+**Last updated:** 2026-06-25
 **Active files:** `index.html`, `cenik.html`, `gallery.html`
 **Directory:** `/home/jiric/data/thai massage web/` (WSL) / `/mnt/d/data/thai massage web/` (Windows)
 
@@ -34,6 +34,56 @@
 | 16 | Index card footers → duration recommendations | **pending** | Prices removed from index cards (kept only in cenik). Duration text needed per card. |
 | 23 | Select card layout | **done** | Final: layered design — border-top burgundy + cream background + white rounded rect body. 2026-06-25. |
 | 24 | Re-run `apply_nbsp.py` | **pending** | File list updated; script ready to execute on new filenames. |
+| 25 | Footer link tap effect (gold underline) | **pending review** | Implemented on `css/main.css`. Needs master user sign-off before production. |
+
+---
+
+## Master User Pre-Production Review
+
+Checklist of items requiring human review and sign-off before the site is considered production-ready. Last pass: **pending**.
+
+### Visual & UI Review
+
+| # | Item | Status | Notes |
+|---|------|--------|-------|
+| R1 | **Card layout** — all 6 cards render correctly on mobile & desktop | ⬜ | Cream footer aligned to bottom? White body rounded rect reads correctly? |
+| R2 | **Footer links** — tap effect (gold underline sweep) | ⬜ | Test on real phone: no blue highlight, gold animates on tap, no layout shift |
+| R3 | **Hero carousel** — crossfade, drift, sessionStorage persistence | ⬜ | Verify on fresh load vs returning visitor |
+| R4 | **Hero background** — blurred fallback visible before carousel paints | ⬜ | Check on slow connection / 3G throttling |
+| R5 | **Cenik page** — pricing tiers grid, service list layout | ⬜ | Mobile stacking, gold dividers visible |
+| R6 | **Gallery page** — image grid, lazy loading, WebP fallbacks | ⬜ | All 15 images load? WebP → JPEG fallback works? |
+| R7 | **Colours & contrast** — burgundy, gold, cream, white across all pages | ⬜ | Consistent? Gold legible on burgundy footer? White text on gold CTA? |
+| R8 | **Typography** — Merriweather loading, fallback, line heights | ⬜ | No FOIT? Body text readable on mobile (17px)? |
+
+### Content Review
+
+| # | Item | Status | Notes |
+|---|------|--------|-------|
+| R9 | **All text is final** — descriptions, pricing, business info | ⬜ | Reflexní masáž text approved? Gift card text still pending (#2) |
+| R10 | **Phone number** — correct format, functional on tap | ⬜ | `tel:+420732468022` dials the right number |
+| R11 | **Email** — correct address, opens mail app | ⬜ | `penzionutrebonskemadony@gmail.com` |
+| R12 | **SEO meta tags** — fill in real description, og:image, Twitter card | ⬜ | Currently placeholders (empty strings) |
+| R13 | **Czech typography** — non-breaking spaces after single-letter words | ⬜ | `apply_nbsp.py` not yet re-run (#24) |
+
+### Technical Review
+
+| # | Item | Status | Notes |
+|---|------|--------|-------|
+| R14 | **Mobile responsiveness** — test at 375px, 768px, 1024px+ | ⬜ | Menu toggle, card rows, hero height, footer wrapping |
+| R15 | **Touch targets** — all interactive elements ≥ 44×44px | ⬜ | Buttons, links, nav items, gallery |
+| R16 | **Page speed** — Lighthouse mobile audit | ⬜ | FPT, LCP, CLS targets |
+| R17 | **GitHub Pages** — deployment verified, auto-deploy working | ⬜ | Current URL: `https://jiri-cermak.github.io/thai-mas-web/` |
+| R18 | **No broken links** — internal nav, gallery images, external | ⬜ | `index.html`, `cenik.html`, `gallery.html` cross-references |
+| R19 | **Assets** — all images load (garuda.png, bg_jana.jpg, hero-blur, gallery) | ⬜ | Missing logo, background paths verified |
+| R20 | **No Jekyll processing** — `.nojekyll` file present in repo | ⬜ | Prevents GH Pages from treating files as Jekyll |
+
+### Deployment Sign-Off
+
+| # | Item | Status | Notes |
+|---|------|--------|-------|
+| R21 | **Master user walkthrough** — end-to-end on real phone | ⬜ | Tap through all pages, all interactions |
+| R22 | **Final approval** | ⬜ | Go / No-go for production |
+| R23 | **Custom domain** (future) | ⬜ | DNS not set up yet — deferred
 
 ---
 
