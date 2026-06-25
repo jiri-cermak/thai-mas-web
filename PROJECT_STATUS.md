@@ -109,7 +109,21 @@ thai-mas-web/
 2. Generate skeleton files for DE/EN/TH
 3. Apply translations via JSON key-value pairs
 
-**Priority:** Low — can be deferred until after production launch. Core audience is CZ; DE/EN are nice-to-have for walk-in tourists.
+**Priority:** Low — scope discussion deferred to pre-production sign-off (see R23).
+
+#### Scope Discussion Required Before Sign-Off
+
+This feature introduces significant content duplication. Key questions to resolve at the review walkthrough (R21):
+
+| Question | Implication |
+|----------|-------------|
+| Who provides/sources the translations? | Professional translator vs machine + human review |
+| Do all 3 pages get translated, or just key pages? | Minimal: index only. Full: all 3 |
+| Is TH (Thai) in scope or stretch? | Adding a 4th language triples duplication |
+| Language switcher: text links or flags or combined? | Text is design-aligned; flags are more intuitive for tourists |
+| Content sync strategy? | Manual copy-paste vs Python generator script |
+
+These decisions affect the rollout path and should be resolved before development starts.
 
 #### Design Alignment Check
 
