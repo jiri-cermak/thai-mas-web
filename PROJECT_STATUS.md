@@ -33,7 +33,7 @@
 | 3 | Hero heading on cenik/gallery | **deferred** | Bound to nav redesign exploration — unified top bar (logo left, title center, menu right). Do not execute independently. |
 | 16 | Index card footers → duration recommendations | **deferred** | Moved to feature discussion — needs master user scoping before implementation. |
 | 23 | Select card layout | **done** | Final: layered design — border-top burgundy + cream background + white rounded rect body. 2026-06-25. |
-| 24 | Re-run `apply_nbsp.py` | **pending** | File list updated; script ready to execute on new filenames. |
+| 24 | Re-run typography rules (`preen`) | **pending** | Supersedes `apply_nbsp.py`. Use `preen` skill — script at `~/.hermes/skills/text/preen/scripts/preen.py`. |
 | 25 | Footer link tap effect (gold underline) | **pending review** | Implemented on `css/main.css`. Needs master user sign-off before production. |
 
 ---
