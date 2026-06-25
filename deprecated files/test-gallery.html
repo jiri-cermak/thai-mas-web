@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gallery Test</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+        .item { border: 1px solid #ccc; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Gallery Test</h1>
+    <div id="test"></div>
+    
+    <script>
+        try {
+            console.log("Script started");
+            
+            // Check if we can access the images folder
+            fetch('gallery/large/').then(response => {
+                console.log('Folder status:', response.status);
+                if (!response.ok) {
+                    console.error('Folder not accessible');
+                }
+            }).catch(err => {
+                console.error('Fetch error:', err);
+            });
+            
+            // Try to load a simple image
+            const img = new Image();
+            img.src = 'gallery/large/142_large.jpg';
+            img.onload = function() {
+                console.log('Image loaded successfully!');
+                document.body.innerHTML += '<p style="color:green">Image loaded!</p>';
+            };
+            img.onerror = function() {
+                console.error('Image failed to load');
+                document.body.innerHTML += '<p style="color:red">Image failed to load. Check console.</p>';
+            };
+            
+            console.log('Test script executed');
+        } catch (e) {
+            console.error('Exception:', e);
+        }
+    </script>
+</body>
+</html>

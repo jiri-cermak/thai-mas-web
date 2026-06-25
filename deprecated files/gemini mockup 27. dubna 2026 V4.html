@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thajské masáže Třeboň</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto+Condensed:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto Condensed', sans-serif;
+            background-color: #F9F4F0;
+            color: #2D2D2D;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: #81053D;
+            margin-top: 0;
+        }
+
+        header {
+            padding: 30px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #F9F4F0;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #81053D;
+            border-bottom: 2px solid #D4AF37;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2D2D2D;
+            margin-left: 25px;
+            font-size: 16px;
+        }
+
+        .hero {
+            padding: 60px 10% 70px;
+            background: linear-gradient(to right, rgba(249, 244, 240, 0.9), rgba(249, 244, 240, 0.2)), 
+                        url('https://images.unsplash.com/photo-1519415510236-85592ac59c9b?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h1 {
+            font-size: 54px;
+            margin-bottom: 10px;
+            max-width: 600px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 500px;
+            margin-bottom: 24px;
+            color: #4A4A4A;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 35px;
+            background-color: #D4AF37;
+            color: #81053D;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #81053D;
+            color: #F9F4F0;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            padding: 80px 10%;
+        }
+
+        .service-card {
+            border-top: 1px solid #D4AF37;
+            padding-top: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            color: #81053D;
+        }
+
+        .footer {
+            background-color: #81053D;
+            color: #F9F4F0;
+            padding: 60px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .footer-info h2 {
+            color: #D4AF37;
+        }
+
+        .contact-item {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Thajské masáže Třeboň</div>
+        <nav>
+            <a href="#">Masáže</a>
+            <a href="#">Ceník</a>
+            <a href="#">Kontakt</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Vraťte svému tělu přirozenou rovnováhu</h1>
+        <p>Objevte staletími prověřené thajské techniky v klidném prostředí našeho salonu v centru města.</p>
+        <a href="#" class="cta-button">Vybrat si masáž</a>
+    </section>
+
+    <section class="services">
+        <div class="service-card">
+            <h3>Tradiční thajská masáž</h3>
+            <p>Intenzivní protažení a práce s energetickými liniemi pro uvolnění celého těla bez použití olejů.</p>
+        </div>
+        <div class="service-card">
+            <h3>Královská olejová péče</h3>
+            <p>Spojení relaxační masáže s aromaterapií, která využívá vzácné thajské byliny a esenciální oleje.</p>
+        </div>
+        <div class="service-card">
+            <h3>Masáž zad a šíje</h3>
+            <p>Cílená úleva pro ty, kteří tráví dlouhé hodiny u počítače. Rychlá pomoc od ztuhlosti.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-info">
+            <h2>Thajské masáže Třeboň</h2>
+            <div class="contact-item">Husova 68, Třeboň</div>
+            <div class="contact-item">+420 732 468 022</div>
+        </div>
+        <div class="footer-hours">
+            <p>Pondělí — Neděle</p>
+            <p style="font-size: 20px; color: #D4AF37;">09:00 — 21:00</p>
+        </div>
+    </footer>
+
+</body>
+</html>

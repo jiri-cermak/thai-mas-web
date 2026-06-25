@@ -11,7 +11,7 @@ Visual design helper for the **thai-mas-web** project. I focus on color, typogra
 - **Asset integration** — images, icons, background photos.
 
 ## Active development scope
-- **Active site:** `_jana` (`index_jana.html` / `cenik_jana.html`) — all current changes go here.
+- **Active site:** `index.html` / `cenik.html` / `gallery.html` — all current changes go here.
 - **Frozen for AB testing:** `_jana2` — do not modify unless explicitly asked.
 
 ## Out of scope

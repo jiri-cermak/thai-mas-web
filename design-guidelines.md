@@ -10,7 +10,7 @@
 ## Color Palette
 | Role | Hex | Usage |
 |------|-----|-------|
-| Cream | `#F9F4F0` | Page background |
+| Cream | `#ffdfb7` | Page background (V2: darker warm cream) |
 | Burgundy | `#81053D` | H1–H3 text, header/footer overlays, hover states |
 | Gold | `#D4AF37` | Header/footer text, accents |
 | Body | `#2D2D2D` | Body text on light backgrounds |
@@ -26,7 +26,7 @@
 - `font-size: 17px` on mobile (better serif readability), `16px` on desktop `@media (min-width: 769px)`.
 - H1: `32px` mobile, `48px` desktop.
 - H3: `20px` mobile, `20px` desktop.
-- Subtitle: `18px` mobile, `18px` desktop.
+- Subtitle: `18px` mobile, `18px` desktop. Color: burgundy `#81053D`.
 - Navigation links: `15px`.
 
 ## Buttons (CTA)
@@ -45,11 +45,11 @@
 | Hero padding | `80px 16px 40px` | `120px 20px 60px` |
 | Section padding | `40px 16px` | `50px 20px` |
 | Card padding | `24px` | `30px` |
-| Footer padding | `48px 16px` | `60px 20px` |
+| Footer padding | `32px 16px` | `40px 20px` |
 
 ## Header
 - `position: absolute` over the hero.
-- Background: `rgba(129, 5, 61, 0.75)` (burgundy overlay).
+- Background: `rgba(129, 5, 61, 0.85)` (burgundy overlay, V2: more saturated).
 - Logo: garuda, gold-tinted via `filter: invert(1) sepia(1) saturate(8) brightness(0.85)`.
 - Mobile: CSS-only hamburger (`<input type="checkbox">` + `<label>`). Three gold bars.
 - Desktop: horizontal nav, links in gold, `margin-left: 20px`.

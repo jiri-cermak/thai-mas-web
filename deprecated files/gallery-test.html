@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie - Thajské masáže Třeboň</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Merriweather', serif;
+            background-color: #ffdfb7;
+            color: #2D2D2D;
+            line-height: 1.6;
+            font-size: 17px;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            color: #81053D;
+            margin-top: 0;
+        }
+        
+        /* ── Header ── */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+            background-color: rgba(129, 5, 61, 0.75);
+        }
+        
+        .logo-img {
+            height: 40px;
+            width: auto;
+            display: block;
+            filter: invert(1) sepia(1) saturate(8) hue-rotate(0deg) brightness(0.85);
+        }
+        
+        /* Hamburger toggle (CSS-only) */
+        #menu-toggle {
+            display: none;
+        }
+        
+        .menu-icon {
+            display: block;
+            cursor: pointer;
+            padding: 8px;
+            min-height: 44px;
+            min-width: 44px;
+        }
+        
+        .menu-icon span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: #D4AF37;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+        
+        nav {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: rgba(129, 5, 61, 0.95);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        #menu-toggle:checked ~ nav {
+            max-height: 200px;
+        }
+        
+        nav a {
+            display: block;
+            text-decoration: none;
+            color: #D4AF37;
+            padding: 14px 16px;
+            font-size: 15px;
+            min-height: 44px;
+            transition: color: 0.3s;
+        }
+        
+        nav a:hover {
+            color: #fff;
+        }
+        
+        /* ── Hero ── */
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: 80px 16px 40px;
+            background: linear-gradient(to bottom, rgba(249, 244, 240, 0.3) 0%, rgba(249, 244, 240, 0.68) 30%),
+                        url('bg_jana.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero h1 {
+            font-size: 32px;
+            margin-bottom: 12px;
+            color: #81053D;
+        }
+        
+        .hero .subtitle {
+            font-family: 'Merriweather', serif;
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #D4AF37;
+        }
+        
+        .hero-intro {
+            max-width: 720px;
+            margin: 0 auto 20px;
+            font-size: 17px;
+            color: #2D2D2D;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            display: block;
+            width: 100%;
+            max-width: 320px;
+            margin: 20px auto 0;
+            padding: 16px 24px;
+            background-color: #D4AF37;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 16px;
+            text-align: center;
+            min-height: 48px;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .cta-button:hover {
+            background-color: #81053D;
+            color: #F9F4F0;
+            transform: translateY(-2px);
+        }
+        
+        /* ── Services ── */
+        .services {
+            padding: 40px 16px 60px;
+        }
+        
+        .card {
+            background: white;
+            padding: 24px;
+            border: 1px solid #eee;
+            border-radius: 15px;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 16px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .card h3 {
+            font-size: 20px;
+            color: #81053D;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+        
+        .card p {
+            color: #4A4A4A;
+            font-size: 15px;
+            margin: 0;
+        }
+        
+        /* ── Footer ── */
+        .footer {
+            background: linear-gradient(rgba(129, 5, 61, 0.85), rgba(129, 5, 61, 0.85)), url('bg_jana.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #D4AF37;
+            padding: 48px 16px;
+            text-align: center;
+            font-size: 15px;
+        }
+        
+        .footer h2 {
+            color: #D4AF37;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .footer p {
+            margin: 0 0 10px;
+        }
+        
+        .footer a {
+            color: #D4AF37;
+            text-decoration: none;
+            display: inline-block;
+            min-height: 44px;
+            min-width: 44px;
+            padding: 4px 0;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer .hours {
+            color: #D4AF37;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+        
+        /* ════════════════════════════════════════
+           DESKTOP ENHANCEMENTS (min-width: 769px)
+           ════════════════════════════════════════ */
+        @media (min-width: 769px) {
+            body {
+                font-size: 16px;
+            }
+            
+            header {
+                padding: 20px 50px;
+            }
+            
+            .logo-img {
+                height: 45px;
+            }
+            
+            .menu-icon {
+                display: none;
+            }
+            
+            nav {
+                position: static;
+                display: flex;
+                align-items: center;
+                background: none;
+                max-height: none;
+                overflow: visible;
+            }
+            
+            nav a {
+                display: inline;
+                padding: 0;
+                margin-left: 20px;
+                min-height: auto;
+            }
+            
+            .hero {
+                padding: 120px 20px 60px;
+            }
+            
+            .hero h1 {
+                font-size: 48px;
+                margin-bottom: 16px;
+            }
+            
+            .hero .subtitle {
+                font-size: 20px;
+                margin-bottom: 28px;
+            }
+            
+            .hero-intro {
+                font-size: 16px;
+                margin-bottom: 24px;
+            }
+            
+            .cta-button {
+                display: inline-block;
+                width: auto;
+                max-width: none;
+                margin: 28px auto 0;
+                padding: 14px 36px;
+            }
+            
+            .services {
+                display: flex;
+                justify-content: center;
+                flex-wrap: repeat(auto-fill, minmax(350px, 1fr));
+                gap: 30px;
+                padding: 50px 20px 70px;
+            }
+            
+            .card {
+                width: 250px;
+                margin-bottom: 0;
+                padding: 30px;
+            }
+            
+            .footer {
+                padding: 60px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="garuda.png" alt="Thajské masáže Třeboň" class="logo-img"></a>
+        <label for="menu-toggle" class="menu-icon" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <input type="checkbox" id="menu-toggle">
+        <nav>
+            <a href="index.html">Úvodní stránka</a>
+            <a href="cenik.html">Ceník</a>
+            <a href="gallery.html">Galerie</a>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <h1>Galerie</h1>
+        <p>Prohlédněte si naše fotografie z poskytovaných masáží a wellness služeb v Třeboni.</p>
+        
+        <div class="gallery-grid" id="gallery-grid"></div>
+    </div>
+    
+    <footer>
+        <h2>Thajské masáže Třeboň</h2>
+        <p>Husova 68, 379 01 Třeboň</p>
+        <p><a href="tel:+420732468022">+420 732 468 022</a></p>
+        <p><a href="mailto:penzionutrebonskemadony@gmail.com">penzionutrebonskemadony@gmail.com</a></p>
+        <p class="hours">Pondělí — Sobota 09:00 — 19:00</p>
+        <p>V neděli odpočíváme.</p>
+    </footer>
+    
+    <script>
+        try {
+            console.log('Gallery script loaded successfully');
+            
+            const images = [
+                {
+                    webp: "gallery/large/142_large.webp 1200w, gallery/medium/142_medium.webp 800w, gallery/thumbs/142_thumb.webp 300w",
+                    jpeg: "gallery/large/142_large.jpg 1200w, gallery/medium/142_medium.jpg 800w, gallery/thumbs/142_thumb.jpg 300w"
+                },
+                {
+                    webp: "gallery/large/149_large.webp 1200w, gallery/medium/149_medium.webp 800w, gallery/thumbs/149_thumb.webp 300w",
+                    jpeg: "gallery/large/149_large.jpg 1200w, gallery/medium/149_medium.jpg 800w, gallery/thumbs/149_thumb.jpg 300w"
+                },
+                {
+                    webp: "gallery/large/156_large.webp 1200w, gallery/medium/156_medium.webp 800w, gallery/thumbs/156_thumb.webp 300w",
+                    jpeg: "gallery/large/156_large.jpg 1200w, gallery/medium/156_medium.jpg 800w, gallery/thumbs/156_thumb.jpg 300w"
+                },
+                {
+                    webp: "gallery/large/164_large.webp 1200w, gallery/medium/164_medium.webp 800w, gallery/thumbs/164_thumb.webp 300w",
+                    jpeg: "gallery/large/164_large.jpg 1200w, gallery/medium/164_medium.jpg 800w, gallery/thumbs/164_thumb.jpg 300w"
+                },
+                {
+                    webp: "gallery/large/175_large.webp 1200w, gallery/medium/175_medium.webp 800w, gallery/thumbs/175_thumb.webp 300w",
+                    jpeg: "gallery/large/175_large.jpg 1200w, gallery/medium/175_medium.jpg 800w, gallery/thumbs/175_thumb.jpg 300w"
+                },
+                {
+                    webp: "gallery/large/176_large.webp 1200w, gallery/medium/176_medium.webp 800w, gallery/thumbs/176_thumb.webp 300w",
+                    jpeg: "gallery/large/176_large.jpg 1200w, gallery/medium/176_medium.jpg 800w, gallery/thumbs/176_thumb.jpg 300w"
+                },
+                {
+                    webp: "gallery/large/182_large.webp 1200w, gallery/medium/182_medium.webp 800w, gallery/thumbs/182_thumb.webp 300w",
+                    jpeg: "gallery/large/182_large.jpg 1200w, gallery/medium/182_medium.jpg 800w, gallery/thumbs/182_thumb.jpg 300w"
+                },
+                {
+                    webp: "gallery/large/185_large.webp 1200w, gallery/medium/185_medium.webp 800w, gallery/thumbs/185_thumb.webp 300w",
+                    jpeg: "gallery/large/185_large.jpg 1200w, gallery/medium/185_medium.jpg 800w, gallery/thumbs/185_thumb.jpg 300w"
+                },
+                {
+                    webp: "gallery/large/189_large.webp 1200w, gallery/medium/189_medium.webp 800w, gallery/thumbs/189_thumb.webp 300w",
+                    jpeg: "gallery/large/189_large.jpg 1200w, gallery/medium/189_medium.jpg 800w, gallery/thumbs/189_thumb.jpg 300w"
+                },
+                {
+                    webp: "gallery/large/192_large.webp 1200w, gallery/medium/192_medium.webp 800w, gallery/thumbs/192_thumb.webp 300w",
+                    jpeg: "gallery/large/192_large.jpg 1200w, gallery/medium/192_medium.jpg 800w, gallery/thumbs/192_thumb.jpg 300w"
+                },
+                {
+                    webp: "gallery/large/209_large.webp 1200w, gallery/medium/209_medium.webp 800w, gallery/thumbs/209_thumb.webp 300w",
+                    jpeg: "gallery/large/209_large.jpg 1200w, gallery/medium/209_medium.jpg 800w, gallery/thumbs/209_thumb.jpg 300w"
+                },
+                {
+                    webp: "gallery/large/215_large.webp 1200w, gallery/medium/215_medium.webp 800w, gallery/thumbs/215_thumb.webp 300w",
+                    jpeg: "gallery/large/215_large.jpg 1200w, gallery/medium/215_medium.jpg 800w, gallery/thumbs/215_thumb.jpg 300w"
+                },
+                {
+                    webp: "gallery/large/227_large.webp 1200w, gallery/medium/227_medium.webp 800w, gallery/thumbs/227_thumb.webp 300w",
+                    jpeg: "gallery/large/227_large.jpg 1200w, gallery/medium/227_medium.jpg 800w, gallery/thumbs/227_thumb.jpg 300w"
+                },
+                {
+                    webp: "gallery/large/231_large.webp 1200w, gallery/medium/231_medium.webp 800w, gallery/thumbs/231_thumb.webp 300w",
+                    jpeg: "gallery/large/231_large.jpg 1200w, gallery/medium/231_medium.jpg 800w, gallery/thumbs/231_thumb.jpg 300w"
+                },
+                {
+                    webp: "gallery/large/233_large.webp 1200w, gallery/medium/233_medium.webp 800w, gallery/thumbs/233_thumb.webp 300w",
+                    jpeg: "gallery/large/233_large.jpg 1200w, gallery/medium/233_medium.jpg 800w, gallery/thumbs/233_thumb.jpg 300w"
+                },
+                {
+                    webp: "gallery/large/259_large.webp 1200w, gallery/medium/259_medium.webp 800w, gallery/thumbs/259_thumb.webp 300w",
+                    jpeg: "gallery/large/259_large.jpg 1200w, gallery/medium/259_medium.jpg 800w, gallery/thumbs/259_thumb.jpg 300w"
+                }
+            ];
+            
+            console.log('Images array loaded with', images.length, 'images');
+            
+            const galleryGrid = document.getElementById('gallery-grid');
+            
+            if (!galleryGrid) {
+                console.error('gallery-grid element not found!');
+                return;
+            }
+            
+            images.forEach((image, index) => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                
+                const picture = document.createElement('picture');
+                
+                const sourceWebp = document.createElement('source');
+                sourceWebp.srcset = image.webp;
+                sourceWebp.type = 'image/webp';
+                
+                const sourceJpeg = document.createElement('source');
+                sourceJpeg.srcset = image.jpeg;
+                sourceJpeg.type = 'image/jpeg';
+                
+                const fallbackImg = document.createElement('img');
+                fallbackImg.src = image.jpeg.split(' ')[0];
+                fallbackImg.alt = `Fotografie ${index + 1}`;
+                fallbackImg.loading = 'lazy';
+                fallbackImg.className = 'gallery-image';
+                
+                picture.appendChild(sourceWebp);
+                picture.appendChild(sourceJpeg);
+                picture.appendChild(fallbackImg);
+                
+                galleryItem.appendChild(picture);
+                galleryGrid.appendChild(galleryItem);
+                
+                console.log('Added image', index + 1);
+            });
+            
+            console.log('Gallery generation complete');
+        } catch (e) {
+            console.error('Gallery script error:', e);
+        }
+    </script>
+</body>
+</html>

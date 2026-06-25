@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mockup Thajské Masáže</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif; /* Patkové písmo pro eleganci */
+            background-color: #FDFBF2; /* Smetanová */
+            color: #3D2B56; /* Tmavě fialová */
+        }
+
+
+        header {
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #C5A059; /* Zlatá linka */
+        }
+
+
+        .logo {
+            font-weight: bold;
+            font-size: 24px;
+            color: #C5A059; /* Zlatá */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+
+        nav a {
+            text-decoration: none;
+            color: #3D2B56;
+            margin-left: 20px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(rgba(253, 251, 242, 0.8), rgba(253, 251, 242, 0.8)), 
+                        url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: #3D2B56;
+        }
+
+
+        .subtitle {
+            font-style: italic;
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #C5A059;
+        }
+
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: #C5A059; /* Zlatá */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px; /* Zaoblené tvary */
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+        }
+
+
+        .cta-button:hover {
+            background-color: #3D2B56; /* Změna na fialovou při najetí */
+            transform: translateY(-2px);
+        }
+
+
+        .services {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 60px 20px;
+        }
+
+
+        .card {
+            background: white;
+            padding: 30px;
+            border: 1px solid #eee;
+            border-radius: 15px;
+            text-align: center;
+            width: 250px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+
+        .card h3 {
+            color: #C5A059;
+            margin-top: 0;
+        }
+
+
+        .footer {
+            background-color: #3D2B56; /* Tmavě fialová */
+            color: #FDFBF2;
+            padding: 40px;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <header>
+        <div class="logo">Lotus Spa</div>
+        <nav>
+            <a href="#">Služby</a>
+            <a href="#">Ceník</a>
+            <a href="#">O nás</a>
+            <a href="#">Kontakt</a>
+        </nav>
+    </header>
+
+
+    <section class="hero">
+        <h1>Umění thajské relaxace</h1>
+        <p class="subtitle">Tradiční terapie pro vaše tělo i duši</p>
+        <a href="#" class="cta-button">Rezervovat masáž</a>
+    </section>
+
+
+    <section class="services">
+        <div class="card">
+            <h3>Tradiční Thai</h3>
+            <p>Uvolnění energetických drah a protažení svalů.</p>
+        </div>
+        <div class="card">
+            <h3>Olejová masáž</h3>
+            <p>Jemná relaxace s vůní thajských bylinek.</p>
+        </div>
+        <div class="card">
+            <h3>Bylinné měšce</h3>
+            <p>Hloubkové prohřátí a detoxikace organismu.</p>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <p>&copy; 2024 Lotus Spa - Autentické thajské masáže v srdci Prahy</p>
+        <p style="color: #C5A059;">Po - Ne: 09:00 - 21:00</p>
+    </footer>
+
+
+</body>
+</html>

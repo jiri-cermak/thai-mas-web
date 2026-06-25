@@ -220,3 +220,76 @@
 - Visual design unchanged: burgundy header overlay, gold text, background image under header and footer, Merriweather, soft-rectangle CTA.
 
 ---
+
+### May 18, 2026 (gallery fix)
+
+**[FIX]** Rewrote `gallery.html` — multiple critical issues resolved
+- Added missing Google Fonts link (`Merriweather:wght@400;700`).
+- Fixed CSS syntax error: `transition: color: 0.3s;` → `transition: color 0.3s;`.
+- Fixed invalid flexbox rule: `flex-wrap: repeat(auto-fill, minmax(350px, 1fr))` replaced with proper CSS Grid (`grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))`).
+- Added missing gallery CSS: `.gallery-section`, `.gallery-grid`, `.gallery-item`, `.gallery-item picture`, `.gallery-item img` with `aspect-ratio: 4/3` and `object-fit: cover`.
+- Fixed nav links: `index.html`/`cenik.html` → `index_jana.html`/`cenik_jana.html`.
+- Added `Galerie` link to nav on all three pages (`index_jana.html`, `cenik_jana.html`, `gallery.html`).
+- Fixed footer: added missing `class="footer"`, styling now applies correctly.
+- Fixed phone `tel:` links: `+420****8022` → `+420732468022` across all pages.
+- Refactored JS image data: replaced verbose per-format strings with clean `id`-based srcset generation, added `sizes` attribute for responsive loading.
+
+---
+
+### May 18, 2026 (tasks 4 + 5)
+
+**[FIX]** Task 5 — Hero subtitle visibility
+- Changed `.hero .subtitle` color from gold `#D4AF37` to burgundy `#81053D` on `index_jana.html`.
+- Gold on light gradient had poor contrast; burgundy matches H1 and maintains brand consistency.
+
+**[FIX]** Task 4 — Decrease footer real estate
+- Mobile padding: `48px 16px` → `32px 16px` (-33% vertical space).
+- Desktop padding: `60px 20px` → `40px 20px` (-33% vertical space).
+- Applied to all three active pages: `index_jana.html`, `cenik_jana.html`, `gallery.html`.
+
+**[FIX]** Phone number correction (follow-up)
+- Fixed `tel:+420****8022` → `tel:+420732468022` on `index_jana.html`, `cenik_jana.html`, `gallery.html`.
+- Previous patch did not persist; now verified in all files.
+
+**[DOCS]** Updated `design-guidelines.md`
+|- Footer padding values updated to `32px 16px` / `40px 20px`.
+|- Subtitle color documented as burgundy `#81053D`.
+
+---
+
+### May 19, 2026 (consolidated session)
+
+**[FIX]** Task 4 — Naming consistency
+|- Changed "Klasická thajská masáž" → "Tradiční thajská masáž" in `cenik_jana.html` to match `index_jana.html`.
+
+**[FEAT]** Added 6th service card — "Reflexní masáž chodidel"
+|- Added to `index_jana.html` and `cenik_jana.html` with placeholder body text.
+|- Pricing: 590 Kč/30 m, 830 Kč/45 m (copied from "Masáž obličeje a hlavy").
+
+**[FIX]** Task 5 — Normalized hero sub-heading color across all pages
+|- `cenik_jana.html`: `.hero p` color `#4A4A4A` → `#81053D`.
+|- `gallery.html`: `.hero .subtitle` color `#D4AF37` → `#81053D`.
+|- All three active pages now use burgundy `#81053D` for hero sub-headings.
+
+**[FEAT]** Task 3 + Task 8 — Compact card pricing typography
+|- Added `Barlow Condensed:wght@600` to Google Fonts on `index_jana.html`.
+|- Changed `.card-price` from Merriweather 700/16px to Barlow Condensed 600/14px with 0.3px letter-spacing.
+|- Shortened time labels: `/NN min` → `/NN m` across all 6 cards.
+|- Combined effect: ~25-30% more compact price lines, improved visual hierarchy (serif = content, sans = metadata).
+
+**[FEAT]** Task 9 — Bottom-aligned pricing on index cards
+|- Made `.card` a flex column (`display: flex; flex-direction: column;`).
+|- Added `.card-body` class to description paragraphs with `flex-grow: 1`.
+|- `.card-price` uses `margin-top: auto` to anchor to bottom.
+|- On desktop: prices align horizontally across cards in the same row.
+
+**[DOCS]** New task added to todo list
+|- Task 10: In all body and heading text, replace space with non-breakable space after all single-character words (Czech typography rule).
+
+**[PENDING]** Remaining open tasks
+|- Task 2: Add payment/gift card text ("Platit pouze hotově" + "Prodáváme dárkové poukazy").
+|- Task 5: Rephrase footer for GDPR compliance and vertical compaction.
+|- Task 7 (optional): Remove hero heading from cenik and gallery pages.
+|- Task 10: Non-breakable spaces after single-character words.
+
+---

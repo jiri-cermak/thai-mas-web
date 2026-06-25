@@ -1,0 +1,29 @@
+FOOTER PREVIEW — All three pages
+═══════════════════════════════════════════════════════
+
+BEFORE (6 lines + h2):
+─────────────────────
+Thajské masáže Třeboň          ← h2, gold, 20px
+Husova 68, 379 01 Třeboň       ← p, gold, 15px
++420 732 468 022               ← a, gold
+penzionutrebonskemadony@...    ← a, gold
+Pondělí — Sobota 09:00 — 19:00 ← p.hours, gold, 16px, bold
+V neděli odpočíváme.           ← p, gold
+
+AFTER (4 lines):
+────────────────
+Provozuje Penzion U Třeboňské madony, s. r. o., IČ 09787780
+                               ← p, gold, replaces h2
++420 732 468 022               ← a, gold
+penzionutrebonskemadony@...    ← a, gold
+Husova 68, 379 01 Třeboň       ← p.hours, gold, bold, slightly larger
+Otevřeno pondělí–sobota 09–20  ← p, gold
+
+CHANGES SUMMARY:
+────────────────
+- Removed: h2 heading
+- Removed: "V neděli odpočíváme."
+- New line 1: Company name + IČ (replaces h2)
+- Moved: Address into hours slot, kept bold
+- New hours: "Otevřeno pondělí–sobota 09–20" (shorter, en-dash)
+- Line count: 7 → 4 (-43%)

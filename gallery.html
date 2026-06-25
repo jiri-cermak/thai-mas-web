@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Galerie - Thajské masáže Třeboň</title>
+    <link rel="icon" href="garuda.png" type="image/png">
+    <meta property="og:title" content="Galerie | Thajské masáže Třeboň">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        * { margin: 0; padding: 0; }
+
+        .hero .subtitle {
+            font-family: 'Merriweather', serif;
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #81053D;
+        }
+
+        .gallery-section {
+            padding: 40px 16px 60px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            background: white;
+        }
+
+        .gallery-item picture {
+            display: block;
+            width: 100%;
+        }
+
+        .gallery-item img {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+        }
+
+        @media (min-width: 769px) {
+            .hero .subtitle {
+                font-size: 20px;
+                margin-bottom: 28px;
+                color: #81053D;
+            }
+
+            .gallery-section {
+                padding: 50px 20px 70px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="garuda.png" alt="Thajské masáže Třeboň" class="logo-img"></a>
+        <label for="menu-toggle" class="menu-icon" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <input type="checkbox" id="menu-toggle">
+        <nav>
+            <a href="index.html">Úvodní stránka</a>
+            <a href="cenik.html">Ceník</a>
+            <a href="gallery.html">Galerie</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Galerie</h1>
+        <p class="subtitle">Prohlédněte si naše fotografie z&nbsp;poskytovaných masáží a&nbsp;wellness služeb v&nbsp;Třeboni.</p>
+    </section>
+
+    <section class="gallery-section">
+        <div class="gallery-grid" id="gallery-grid"></div>
+    </section>
+
+    <footer class="footer">
+        <p>Provozuje Penzion U&nbsp;Třeboňské madony, s.&nbsp;r.&nbsp;o., IČ&nbsp;09787780</p>
+        <p><a href="tel:+420732468022" class="phone-link">+420 732 468 022</a><span style="margin: 0 12px; color: #D4AF37; opacity: 0.5;">|</span><a href="mailto:penzionutrebonskemadony@gmail.com" class="email-link">penzionutrebonskemadony@gmail.com</a></p>
+        <p class="hours">Husova 68, 379 01 Třeboň — Otevřeno pondělí–sobota 9–20</p>
+    </footer>
+
+    <script src="js/gallery.js" defer></script>
+    <script src="hero-carousel.js" defer></script>
+</body>
+</html>

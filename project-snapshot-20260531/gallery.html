@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie - Thajské masáže Třeboň</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Merriweather', serif;
+            background-color: #F5EBE1;
+            color: #2D2D2D;
+            line-height: 1.6;
+            font-size: 17px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            color: #81053D;
+            margin-top: 0;
+        }
+
+        /* ── Header ── */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+            background-color: rgba(129, 5, 61, 0.85);
+        }
+
+        .logo-img {
+            height: 40px;
+            width: auto;
+            display: block;
+            filter: invert(1) sepia(1) saturate(8) hue-rotate(0deg) brightness(0.85);
+        }
+
+        /* Hamburger toggle (CSS-only) */
+        #menu-toggle {
+            display: none;
+        }
+
+        .menu-icon {
+            display: block;
+            cursor: pointer;
+            padding: 8px;
+            min-height: 44px;
+            min-width: 44px;
+        }
+
+        .menu-icon span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: #D4AF37;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        nav {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: rgba(129, 5, 61, 0.95);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        #menu-toggle:checked ~ nav {
+            max-height: 200px;
+        }
+
+        nav a {
+            display: block;
+            text-decoration: none;
+            color: #D4AF37;
+            padding: 14px 16px;
+            font-size: 15px;
+            min-height: 44px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: 80px 16px 40px;
+            background: url('gallery/medium/209_medium.jpg');
+            background-size: cover;
+            background-position: center top;
+            overflow: hidden;
+        }
+
+        .hero-bg-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center top;
+            opacity: 0;
+            transition: opacity 1s ease, transform 1s ease;
+            z-index: 0;
+        }
+
+        .hero-bg-layer.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .hero-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(249, 244, 240, 0.3) 0%, rgba(249, 244, 240, 0.68) 30%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero h1, .hero p, .hero a {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+            margin-bottom: 12px;
+            color: #81053D;
+        }
+
+        .hero .subtitle {
+            font-family: 'Merriweather', serif;
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #81053D;
+        }
+
+        /* ── Gallery ── */
+        .gallery-section {
+            padding: 40px 16px 60px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            background: white;
+        }
+
+        .gallery-item picture {
+            display: block;
+            width: 100%;
+        }
+
+        .gallery-item img {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+        }
+
+        /* ── Footer ── */
+        .footer {
+            background: linear-gradient(rgba(129, 5, 61, 0.85), rgba(129, 5, 61, 0.85)), url('bg_jana.jpg');
+            background-size: cover;
+            background-position: center top;
+            color: #D4AF37;
+            padding: 32px 16px;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .footer h2 {
+            color: #D4AF37;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .footer p {
+            margin: 0 0 10px;
+        }
+
+        .footer a {
+            color: #D4AF37;
+            text-decoration: none;
+            display: inline-block;
+            min-height: 44px;
+            min-width: 44px;
+            padding: 4px 0;
+            transition: all 0.3s ease;
+        }
+
+        .footer a.phone-link::before {
+            content: "";
+            margin-right: 0;
+        }
+
+        .footer a.phone-link:hover {
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+
+        .footer a.email-link:hover {
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+
+        .footer .hours {
+            color: #D4AF37;
+            font-size: 16px;
+            font-weight: 700;
+            margin-top: 12px;
+        }
+
+        /* ════════════════════════════════════════
+           DESKTOP ENHANCEMENTS (min-width: 769px)
+           ════════════════════════════════════════ */
+        @media (min-width: 769px) {
+            body {
+                font-size: 16px;
+            }
+
+            header {
+                padding: 20px 50px;
+            }
+
+            .logo-img {
+                height: 45px;
+            }
+
+            .menu-icon {
+                display: none;
+            }
+
+            nav {
+                position: static;
+                display: flex;
+                align-items: center;
+                background: none;
+                max-height: none;
+                overflow: visible;
+            }
+
+            nav a {
+                display: inline;
+                padding: 0;
+                margin-left: 20px;
+                min-height: auto;
+            }
+
+            .hero {
+                padding: 120px 20px 60px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+                margin-bottom: 16px;
+            }
+
+            .hero .subtitle {
+                font-size: 20px;
+                margin-bottom: 28px;
+                color: #81053D;
+            }
+
+            .gallery-section {
+                padding: 50px 20px 70px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 24px;
+            }
+
+            .footer {
+                padding: 40px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index_jana.html"><img src="garuda.png" alt="Thajské masáže Třeboň" class="logo-img"></a>
+        <label for="menu-toggle" class="menu-icon" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <input type="checkbox" id="menu-toggle">
+        <nav>
+            <a href="index_jana.html">Úvodní stránka</a>
+            <a href="cenik_jana.html">Ceník</a>
+            <a href="gallery.html">Galerie</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Galerie</h1>
+        <p class="subtitle">Prohlédněte si naše fotografie z&nbsp;poskytovaných masáží a&nbsp;wellness služeb v&nbsp;Třeboni.</p>
+    </section>
+
+    <section class="gallery-section">
+        <div class="gallery-grid" id="gallery-grid"></div>
+    </section>
+
+    <footer class="footer">
+        <p>Provozuje Penzion U&nbsp;Třeboňské madony, s.&nbsp;r.&nbsp;o., IČ&nbsp;09787780</p>
+        <p><a href="tel:+420****8022" class="phone-link">+420 732 468 022</a><span style="margin: 0 12px; color: #D4AF37; opacity: 0.5;">|</span><a href="mailto:penzionutrebonskemadony@gmail.com" class="email-link">penzionutrebonskemadony@gmail.com</a></p>
+        <p class="hours">Husova 68, 379 01 Třeboň — Otevřeno pondělí–sobota 9–20</p>
+    </footer>
+
+    <script>
+        (function() {
+            const images = [
+                { id: '142' }, { id: '149' }, { id: '156' }, { id: '164' },
+                { id: '175' }, { id: '176' }, { id: '182' }, { id: '185' },
+                { id: '189' }, { id: '192' }, { id: '209' }, { id: '215' },
+                { id: '227' }, { id: '231' }, { id: '233' }, { id: '259' }
+            ];
+
+            const galleryGrid = document.getElementById('gallery-grid');
+            if (!galleryGrid) return;
+
+            images.forEach((image, index) => {
+                const id = image.id;
+
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+
+                const picture = document.createElement('picture');
+
+                const sourceWebp = document.createElement('source');
+                sourceWebp.srcset = 'gallery/thumbs/' + id + '_thumb.webp 300w, gallery/medium/' + id + '_medium.webp 800w, gallery/large/' + id + '_large.webp 1200w';
+                sourceWebp.sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw';
+                sourceWebp.type = 'image/webp';
+
+                const sourceJpeg = document.createElement('source');
+                sourceJpeg.srcset = 'gallery/thumbs/' + id + '_thumb.jpg 300w, gallery/medium/' + id + '_medium.jpg 800w, gallery/large/' + id + '_large.jpg 1200w';
+                sourceJpeg.sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw';
+                sourceJpeg.type = 'image/jpeg';
+
+                const fallbackImg = document.createElement('img');
+                fallbackImg.src = 'gallery/medium/' + id + '_medium.jpg';
+                fallbackImg.alt = 'Fotografie ' + (index + 1);
+                fallbackImg.loading = 'lazy';
+
+                picture.appendChild(sourceWebp);
+                picture.appendChild(sourceJpeg);
+                picture.appendChild(fallbackImg);
+
+                galleryItem.appendChild(picture);
+                galleryGrid.appendChild(galleryItem);
+            });
+        })();
+    </script>
+    <script src="hero-carousel.js" defer></script>
+</body>
+</html>

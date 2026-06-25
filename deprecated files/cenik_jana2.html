@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceník | Thajské masáže Třeboň</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Merriweather', serif;
+            background-color: #ffdfb7;
+            color: #2D2D2D;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            color: #81053D;
+            margin-top: 0;
+        }
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+            background-color: rgba(129, 5, 61, 0.85);
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            display: block;
+            filter: invert(1) sepia(1) saturate(8) hue-rotate(0deg) brightness(0.85);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #D4AF37;
+            margin-left: 20px;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: 120px 20px 60px;
+            background: linear-gradient(to bottom, rgba(249, 244, 240, 0.3) 0%, rgba(249, 244, 240, 0.68) 30%),
+                        url('bg_jana.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 16px;
+            color: #81053D;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #4A4A4A;
+            margin: 0 0 28px;
+        }
+
+        .pricing {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 50px 20px 70px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border: 1px solid #eee;
+            border-radius: 15px;
+            text-align: center;
+            width: 280px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            font-size: 20px;
+            color: #81053D;
+            margin-top: 0;
+            margin-bottom: 18px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 15px;
+            color: #4A4A4A;
+        }
+
+        .price-row:last-child {
+            border-bottom: none;
+        }
+
+        .price-row span:last-child {
+            font-weight: 600;
+            color: #81053D;
+        }
+
+        .footer {
+            background: linear-gradient(rgba(129, 5, 61, 0.85), rgba(129, 5, 61, 0.85)), url('bg_jana.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #D4AF37;
+            padding: 60px 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .footer h2 {
+            color: #D4AF37;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .footer p {
+            margin: 0 0 8px;
+        }
+
+        .footer a {
+            color: #D4AF37;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer .hours {
+            color: #D4AF37;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .font-switcher {
+            margin-left: 15px;
+            padding: 4px 8px;
+            font-size: 13px;
+            border: 1px solid rgba(212, 175, 55, 0.6);
+            border-radius: 4px;
+            background-color: rgba(212, 175, 55, 0.15);
+            color: #D4AF37;
+            cursor: pointer;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 12px;
+                padding: 12px 20px;
+            }
+
+            .font-switcher {
+                margin-left: 0;
+                margin-top: 8px;
+                background-color: rgba(212, 175, 55, 0.25);
+            }
+
+            .hero {
+                padding-top: 150px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 320px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index_jana2.html"><img src="garuda.png" alt="Thajské masáže Třeboň" class="logo-img"></a>
+        <nav>
+            <a href="index_jana2.html">Úvodní stránka</a>
+            <a href="cenik_jana2.html">Ceník</a>
+            <select class="font-switcher" id="fontSwitcher" onchange="setFont(this.value)">
+                <option value="'Playfair Display', serif">Playfair</option>
+                <option value="'Merriweather', serif">Merriweather</option>
+                <option value="Georgia, serif">Georgia</option>
+            </select>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Ceník</h1>
+        <p>Vyberte si masáž podle vašich potřeb a časových možností.</p>
+    </section>
+
+    <section class="pricing">
+        <div class="card">
+            <h3>Klasická thajská masáž</h3>
+            <div class="price-row">
+                <span>60 minut</span>
+                <span>1 100 Kč</span>
+            </div>
+            <div class="price-row">
+                <span>90 minut</span>
+                <span>1 600 Kč</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Thajská olejová masáž</h3>
+            <div class="price-row">
+                <span>60 minut</span>
+                <span>1 100 Kč</span>
+            </div>
+            <div class="price-row">
+                <span>90 minut</span>
+                <span>1 600 Kč</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Thajská masáž zad a šíje</h3>
+            <div class="price-row">
+                <span>30 minut</span>
+                <span>590 Kč</span>
+            </div>
+            <div class="price-row">
+                <span>45 minut</span>
+                <span>830 Kč</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Masáž obličeje a hlavy</h3>
+            <div class="price-row">
+                <span>30 minut</span>
+                <span>590 Kč</span>
+            </div>
+            <div class="price-row">
+                <span>45 minut</span>
+                <span>830 Kč</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Masáž lávovými kameny</h3>
+            <div class="price-row">
+                <span>60 minut</span>
+                <span>1 100 Kč</span>
+            </div>
+            <div class="price-row">
+                <span>90 minut</span>
+                <span>1 600 Kč</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <h2>Thajské masáže Třeboň</h2>
+        <p>Husova 68, 379 01 Třeboň</p>
+        <p><a href="tel:+420732468022">+420 732 468 022</a></p>
+        <p><a href="mailto:penzionutrebonskemadony@gmail.com">penzionutrebonskemadony@gmail.com</a></p>
+        <p class="hours">Pondělí — Sobota 09:00 — 19:00</p>
+        <p>V neděli odpočíváme.</p>
+    </footer>
+
+    <script>
+        function setFont(fontName) {
+            document.documentElement.style.setProperty('--font-main', fontName);
+            localStorage.setItem('preferredFont', fontName);
+        }
+        (function() {
+            var saved = localStorage.getItem('preferredFont');
+            if (saved) setFont(saved);
+        })();
+    </script>
+</body>
+</html>
