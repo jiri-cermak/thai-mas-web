@@ -158,12 +158,15 @@ Checklist of items requiring human review and sign-off before the site is consid
 | # | Item | Status | Notes |
 |---|------|--------|-------|
 | R1 | **Card layout** — all 6 cards render correctly on mobile & desktop | ⬜ | Cream footer aligned to bottom? White body rounded rect reads correctly? |
+| R1a | **Card top border** — burgundy (6px `#81053D`) | ⬜ | Too dark / heavy? Consider thinner or lighter variant for softer contrast |
 | R2 | **Footer links** — tap effect (gold underline sweep) | ⬜ | Test on real phone: no blue highlight, gold animates on tap, no layout shift |
 | R3 | **Hero carousel** — crossfade, drift, sessionStorage persistence | ⬜ | Verify on fresh load vs returning visitor |
 | R4 | **Hero background** — blurred fallback visible before carousel paints | ⬜ | Check on slow connection / 3G throttling |
 | R5 | **Cenik page** — pricing tiers grid, service list layout | ⬜ | Mobile stacking, gold dividers visible |
 | R6 | **Gallery page** — image grid, lazy loading, WebP fallbacks | ⬜ | All 15 images load? WebP → JPEG fallback works? |
 | R7 | **Colours & contrast** — burgundy, gold, cream, white across all pages | ⬜ | Consistent? Gold legible on burgundy footer? White text on gold CTA? |
+| R7a | **Header opacity** — `rgba(129, 5, 61, 0.85)` | ⬜ | Too dark over hero image? Try 0.75 or 0.80 for lighter overlay |
+| R7b | **Footer opacity** — `rgba(129, 5, 61, 0.85)` over `bg_jana.jpg` | ⬜ | Same as header — balance dark overlay vs legibility of gold text |
 | R8 | **Typography** — Merriweather loading, fallback, line heights | ⬜ | No FOIT? Body text readable on mobile (17px)? |
 
 ### Content Review
